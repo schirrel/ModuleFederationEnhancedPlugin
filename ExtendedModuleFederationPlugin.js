@@ -1,5 +1,6 @@
 const ModuleFederationPlugin =
   require("webpack").container.ModuleFederationPlugin;
+
 class ExtendedModuleFederationPlugin extends ModuleFederationPlugin {
   constructor(options) {
     if (!options.exposes) {
@@ -27,17 +28,23 @@ class ExtendedModuleFederationPlugin extends ModuleFederationPlugin {
     this.options = options;
   }
   apply(compiler) {
+    const { webpack } = compiler;
+    const { RawSource } = webpack.sources;
+
     super.apply(compiler);
     compiler.hooks.emit.tapAsync(
       "ExtendedModuleFederationPlugin",
       (compilation, callback) => {
         console.log("Creating chunkMap\n");
-        console.log(
-          Array.from(compilation.chunks)
-            .map((chunk) => {
-              return Array.from(chunk.files);
-            })
-            .flat()
+        const chunkMap = Array.from(compilation.chunks)
+          .map((chunk) => {
+            return Array.from(chunk.files);
+          })
+          .flat();
+
+        compilation.emitAsset(
+          "./chunkMap.json",
+          new RawSource(JSON.stringify(chunkMap))
         );
 
         callback();

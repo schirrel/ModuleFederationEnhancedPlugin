@@ -2,7 +2,7 @@
 
 Utility to extend Module Federation power.
 
-It uses inheritance so it recieve the same props of ModuleFederationPlugin and call it under the hoods.
+It uses inheritance so it receive the same props of ModuleFederationPlugin and call it under the hoods.
 
 # Install
 
@@ -12,12 +12,17 @@ yarn install.../extended-module-federation-plugin -D
 
 # Extended
 
-|           |                                                     |
+### Extended to remoteEntry:
+|   Prop    |                   Description                       |
 | --------- | --------------------------------------------------- |
 | moduleMap | list of all available modules from a single remote. |
 | remoteMap | list of all modules available for consumption       |
-| chunkMap  | WIP                                                 |
 
+### Other
+
+|   Prop    |                   Description                       |
+| --------- | --------------------------------------------------- |
+| chunkMap.json | list of all chunkNames and create a json file on dist filder. |
 # Usage
 
 ```js

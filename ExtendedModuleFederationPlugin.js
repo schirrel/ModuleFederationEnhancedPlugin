@@ -21,6 +21,11 @@ class ExtendedModuleFederationPlugin extends ModuleFederationPlugin {
         "./remoteMap": `data:application/json,${JSON.stringify(
           Object.keys(options.remotes)
         )}`,
+        "./remoteUrlMap": `data:application/json,${JSON.stringify(
+          Object.keys(options.remotes).map(remoteName => {
+            return { [remoteName]: options.remotes[remoteName].split("@")[1] }
+          })
+        )}`,
       };
     }
 

@@ -1,4 +1,4 @@
-# extended-module-federation-plugin
+# ModuleFederationEnhacedPlugin
 
 Utility to extend Module Federation power.
 
@@ -7,7 +7,7 @@ It uses inheritance so it receive the same props of ModuleFederationPlugin and c
 # Install
 
 ```shell script
-yarn install.../extended-module-federation-plugin -D
+yarn @module-federation/ModuleFederationEnhacedPlugin -D
 ```
 
 # Extended
@@ -27,12 +27,12 @@ yarn install.../extended-module-federation-plugin -D
 # Usage
 
 ```js
-const ExtendedModuleFederationPlugin = require("@module-federation/extended-module-federation-plugin");
+const ModuleFederationEnhacedPlugin = require("@module-federation/ModuleFederationEnhacedPlugin");
 
 module.export = {
   //... rest of your config
   plugins: [
-    new ExtendedModuleFederationPlugin({
+    new ModuleFederationEnhacedPlugin({
       name: "myApp",
       library: { type: "var", name: "app2" },
       filename: "remoteEntry.js",

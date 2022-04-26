@@ -1,7 +1,7 @@
 {
-  "name": "@module-federation/extended-module-federation-plugin",
+  "name": "@module-federation/ModuleFederationEnhacedPlugin",
   "version": "1.0.0",
-  "main": "ExtendedModuleFederationPlugin.js",
+  "main": "ModuleFederationEnhacedPlugin.js",
   "license": "MIT",
   "scripts": {
     "build": "echo noop",
@@ -29,7 +29,7 @@
   },
   "repository": {
     "type": "git",
-    "url": ".../extended-module-federation-plugin.git"
+    "url": ".../ModuleFederationEnhacedPlugin.git"
   },
   "dependencies": {
     "find-package-json": "^1.0.0"

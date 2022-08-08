@@ -2,39 +2,15 @@
   "name": "@schirrel/module-federation-enhanced-plugin",
   "version": "1.0.0",
   "author": "@schirrel",
-  "description": "A simple wrapper for fetch api",
+  "description": "Add feature for improve load and offline management of remotes",
   "main": "ModuleFederationEnhancedPlugin.js",
   "license": "MIT",
-  "scripts": {
-    "build": "echo noop",
-    "deploy": "echo noop",
-    "dev": "echo noop",
-    "setup": "echo noop",
-    "test": "echo noop",
-    "prettier": "prettier --write \"**/*.{js,json,md,ts,tsx}\"",
-    "prettier:check": "prettier --list-different \"**/*.{js,json,md,ts,tsx}\"",
-    "semantic-release": "semantic-release"
-  },
-  "peerDependencies": {
-    "webpack": "^5.0.0-beta.16"
-  },
-  "devDependencies": {
-    "@semantic-release/changelog": "^5.0.1",
-    "@semantic-release/commit-analyzer": "^8.0.1",
-    "@semantic-release/git": "^9.0.0",
-    "@semantic-release/github": "^7.0.6",
-    "@semantic-release/npm": "^7.0.5",
-    "@semantic-release/release-notes-generator": "^9.0.1",
-    "prettier": "^2.0.5",
-    "semantic-release": "^17.0.7",
-    "webpack": "^5.0.0-beta.16"
+  "dependencies": {
+    "webpack": "^5.74.0"
   },
   "repository": {
     "type": "git",
     "url": "git@github.com:schirrel/ModuleFederationEnhancedPlugin.git"
-  },
-  "dependencies": {
-    "find-package-json": "^1.0.0"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"

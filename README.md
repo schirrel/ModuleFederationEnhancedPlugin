@@ -11,7 +11,7 @@ Here are some functinalities for Webpack Module Federation.
 
 ## Install
 ```sh
-npm install --save-dev git@github.com:schirrel/ModuleFederationEnhancedPlugin.git
+npm i @schirrel/module-federation-enhanced-plugin
 ```
 
 

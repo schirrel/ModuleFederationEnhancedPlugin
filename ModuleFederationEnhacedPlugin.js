@@ -1,7 +1,50 @@
 const ModuleFederationPlugin =
   require("webpack").container.ModuleFederationPlugin;
 
-class ExtendedModuleFederationPlugin extends ModuleFederationPlugin {
+const dynamicRemote = (remote) => {
+  return `(resolve) => {
+        const script = document.createElement("script");
+        script.src = "${remote.url}";
+        script.onload = () => {
+          const module = {
+            get: (request) => window["${remote.name}"].get(request),
+            init: (arg) => {
+              try {
+                return window["${remote.name}"].init(arg);
+              } catch (e) {
+                console.log("Problem loading remote ${remote.name}", e);
+              }
+            },
+          };
+          resolve(module);
+        };
+        script.onerror = () => {
+          const module = {
+            get: () => () => {},
+            init: () => () => {},
+          };
+          resolve(module);
+        };
+        document.head.appendChild(script);
+      }`;
+};
+
+
+const createAsyncPromise = (remote) => {
+  return `promise new Promise(${dynamicRemote(remote).toString()})`;
+};
+
+const defaultAsync = (remotes) => {
+  const _newRemotes = {};
+  Object.keys(remotes)?.forEach((remoteName) => {
+    const remote = remotes[remoteName].split("@");
+    _newRemotes[remote[0]] =  createAsyncPromise({name: remote[0], url: remote[1]});
+  });
+
+  return _newRemotes;
+};
+
+class ModuleFederationEnhancedPlugin extends ModuleFederationPlugin {
   constructor(options) {
     if (!options.exposes) {
       options.exposes = {};
@@ -28,33 +71,9 @@ class ExtendedModuleFederationPlugin extends ModuleFederationPlugin {
         )}`,
       };
     }
-
+    options.remotes = defaultAsync(options.remotes);
     super(options);
     this.options = options;
   }
-  apply(compiler) {
-    const { webpack } = compiler;
-    const { RawSource } = webpack.sources;
-
-    super.apply(compiler);
-    compiler.hooks.emit.tapAsync(
-      "ExtendedModuleFederationPlugin",
-      (compilation, callback) => {
-        console.log("Creating chunkMap\n");
-        const chunkMap = Array.from(compilation.chunks)
-          .map((chunk) => {
-            return Array.from(chunk.files);
-          })
-          .flat();
-
-        compilation.emitAsset(
-          "./chunkMap.json",
-          new RawSource(JSON.stringify(chunkMap))
-        );
-
-        callback();
-      }
-    );
-  }
 }
-module.exports = ExtendedModuleFederationPlugin;
+module.exports = ModuleFederationEnhancedPlugin;

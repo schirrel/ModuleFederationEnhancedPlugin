@@ -1,7 +1,9 @@
 {
-  "name": "@module-federation/ModuleFederationEnhacedPlugin",
+  "name": "@schirrel/ModuleFederationEnhancedPlugin",
   "version": "1.0.0",
-  "main": "ModuleFederationEnhacedPlugin.js",
+  "author": "@schirrel",
+  "description": "A simple wrapper for fetch api",
+  "main": "ModuleFederationEnhancedPlugin.js",
   "license": "MIT",
   "scripts": {
     "build": "echo noop",
@@ -29,9 +31,12 @@
   },
   "repository": {
     "type": "git",
-    "url": ".../ModuleFederationEnhacedPlugin.git"
+    "url": "git@github.com:schirrel/ModuleFederationEnhancedPlugin.git"
   },
   "dependencies": {
     "find-package-json": "^1.0.0"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
   }
 }

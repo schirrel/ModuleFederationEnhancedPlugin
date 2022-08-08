@@ -1,5 +1,5 @@
 {
-  "name": "@schirrel/ModuleFederationEnhancedPlugin",
+  "name": "@schirrel/module-federation-enhanced-plugin",
   "version": "1.0.0",
   "author": "@schirrel",
   "description": "A simple wrapper for fetch api",

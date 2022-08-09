@@ -29,17 +29,25 @@ const dynamicRemote = (remote) => {
       }`;
 };
 
+
 const handleAsyncRemote = (remote) => {
   return `promise new Promise(${dynamicRemote(remote).toString()})`;
+};
+
+
+const mountFinalRemoteValue = (remote) => {
+  if (remote.async) {
+    return handleAsyncRemote(remote);
+  }
+  return remote.name + "@" + remote.url;
 };
 
 const AsyncRemote = (remotes) => {
   const _newRemotes = {};
   Object.keys(remotes || {})?.forEach((remoteName) => {
-    const remote = typeof remotes[remoteName] === "string" ? remotes[remoteName].split("@") : [remotes[remoteName].name, remotes[remoteName].url]
-
-    _newRemotes[remoteName] = handleAsyncRemote({ name: remote[0], url: remote[1] });
-
+    const remote = remotes[remoteName];
+    _newRemotes[remoteName] =
+      typeof remote === "string" ? remote : mountFinalRemoteValue(remote);
   });
 
   return _newRemotes;

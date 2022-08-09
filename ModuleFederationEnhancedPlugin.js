@@ -26,7 +26,6 @@ class ModuleFederationEnhancedPlugin extends ModuleFederationPlugin {
   }
   apply(compiler) {
     super.apply(compiler);
-    GenerateChunkMap(compiler);
   }
 }
 module.exports = ModuleFederationEnhancedPlugin;

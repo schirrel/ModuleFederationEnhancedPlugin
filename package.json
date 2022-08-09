@@ -1,12 +1,15 @@
 {
   "name": "@schirrel/module-federation-enhanced-plugin",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "author": "@schirrel",
   "description": "Add feature for improve load and offline management of remotes",
   "main": "ModuleFederationEnhancedPlugin.js",
   "license": "MIT",
   "dependencies": {
     "webpack": "5.74.0"
+  },
+  "scripts": {
+    "test": "echo noop"
   },
   "repository": {
     "type": "git",

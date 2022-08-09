@@ -21,7 +21,7 @@ npm i @schirrel/module-federation-enhanced-plugin
 ### Usage
 #### Config
 ```js
-const ModuleFederationEnhacedPlugin = require("@schirrel/ModuleFederationEnhancedPlugin");
+const ModuleFederationEnhacedPlugin = require("@schirrel/module-federation-enhanced-plugin");
 module.export = {
   //... rest of your config
   plugins: [

@@ -1,7 +1,6 @@
 const ModuleFederationPlugin =
   require("webpack").container.ModuleFederationPlugin;
 
-const GenerateChunkMap = require("./src/GenerateChunkMap");
 const GenerateModuleMap = require("./src/GenerateModuleMap");
 const GenerateRemoteMap = require("./src/GenerateRemoteMap");
 const GenerateRemoteUrlMap = require("./src/GenerateRemoteUrlMap");

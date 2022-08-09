@@ -1,6 +1,6 @@
 {
   "name": "@schirrel/module-federation-enhanced-plugin",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "author": "@schirrel",
   "description": "Add feature for improve load and offline management of remotes",
   "main": "ModuleFederationEnhancedPlugin.js",

@@ -18,12 +18,13 @@ class ModuleFederationEnhancedPlugin extends ModuleFederationPlugin {
       ...GenerateRemoteUrlMap(options),
     };
 
-    options.remotes = AsyncRemote(options.remotes);
+    options.remotes = AsyncRemote.applyAsync(options.remotes);
 
     super(options);
     this.options = options;
   }
   apply(compiler) {
+    AsyncRemote.setAsyncConfig(compiler)
     super.apply(compiler);
   }
 }

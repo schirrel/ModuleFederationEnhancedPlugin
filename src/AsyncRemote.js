@@ -1,3 +1,5 @@
+const isVue = require('./utils/isVue')
+
 const defaultOnError = () => {
   const module = {
     get: () => () => { },
@@ -42,7 +44,7 @@ const mountFinalRemoteValue = (remote) => {
   return remote.name + "@" + remote.url;
 };
 
-const AsyncRemote = (remotes) => {
+const applyAsync = (remotes) => {
   const _newRemotes = {};
   Object.keys(remotes || {})?.forEach((remoteName) => {
     const remote = remotes[remoteName];
@@ -53,4 +55,26 @@ const AsyncRemote = (remotes) => {
   return _newRemotes;
 };
 
-module.exports = AsyncRemote;
+const setAsyncConfig = (compiler) => {
+
+  if (!isVue(compiler)) return compiler
+
+  const { optimization } = compiler.options
+  if (optimization.splitChunk) {
+    if (optimization.splitChunk.cacheGroups) {
+      if (optimization.splitChunk.cacheGroups.common) {
+        optimization.splitChunk.cacheGroups.common.chunks = 'async';
+      }
+      if (optimization.splitChunk.cacheGroups.defaultVendors) {
+        optimization.splitChunk.cacheGroups.defaultVendors.chunks = 'async';
+      }
+    }
+  }
+
+  return compiler
+}
+
+module.exports = {
+  applyAsync,
+  setAsyncConfig
+};

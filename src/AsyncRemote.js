@@ -35,7 +35,7 @@ const handleAsyncRemote = (remote) => {
 
 const AsyncRemote = (remotes) => {
   const _newRemotes = {};
-  Object.keys(remotes)?.forEach((remoteName) => {
+  Object.keys(remotes || {})?.forEach((remoteName) => {
     const remote = typeof remotes[remoteName] === "string" ? remotes[remoteName].split("@") : [remotes[remoteName].name, remotes[remoteName].url]
 
     _newRemotes[remoteName] = handleAsyncRemote({ name: remote[0], url: remote[1] });

@@ -6,7 +6,7 @@
   "main": "ModuleFederationEnhancedPlugin.js",
   "license": "MIT",
   "dependencies": {
-    "webpack": "5.70.0"
+    "webpack": "5.74.0"
   },
   "repository": {
     "type": "git",

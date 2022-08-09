@@ -4,9 +4,8 @@
 name: Publish Github Packages
 
 on:
-   push
- # release:
-  #  types: [created]
+  release:
+    types: [created]
 
 jobs:
   build:

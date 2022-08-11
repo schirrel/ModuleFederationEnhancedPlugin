@@ -1,5 +1,5 @@
 # ModuleFederationEnhacedPlugin
-Here are some functinalities for Webpack Module Federation.
+Here are some functionalities for Webpack Module Federation.
 
 ##  Features
 - Modules' Name Map

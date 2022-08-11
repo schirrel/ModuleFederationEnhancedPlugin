@@ -1,9 +1,9 @@
-const isVue = require('./utils/isVue')
+const isVue = require("./utils/isVue");
 
 const defaultOnError = () => {
   const module = {
-    get: () => () => { },
-    init: () => () => { },
+    get: () => () => {},
+    init: () => () => {},
   };
   resolve(module);
 };
@@ -25,17 +25,16 @@ const dynamicRemote = (remote) => {
           };
           resolve(module);
         };
-        script.onerror = ${remote.onError ? remote.onError.toString() : defaultOnError.toString()
-    }
+        script.onerror = ${
+          remote.onError ? remote.onError.toString() : defaultOnError.toString()
+        }
         document.head.appendChild(script);
       }`;
 };
 
-
 const handleAsyncRemote = (remote) => {
   return `promise new Promise(${dynamicRemote(remote).toString()})`;
 };
-
 
 const mountFinalRemoteValue = (remote) => {
   if (remote.async) {
@@ -56,25 +55,30 @@ const applyAsync = (remotes) => {
 };
 
 const setAsyncConfig = (compiler) => {
+  if (!isVue(compiler)) return compiler;
 
-  if (!isVue(compiler)) return compiler
-
-  const { optimization } = compiler.options
-  if (optimization.splitChunk) {
-    if (optimization.splitChunk.cacheGroups) {
-      if (optimization.splitChunk.cacheGroups.common) {
-        optimization.splitChunk.cacheGroups.common.chunks = 'async';
-      }
-      if (optimization.splitChunk.cacheGroups.defaultVendors) {
-        optimization.splitChunk.cacheGroups.defaultVendors.chunks = 'async';
+  if (!options.remotes) {
+    if (compiler.options.optimization)
+      compiler.options.optimization.splitChunks = false;
+    else compiler.options.optimization = { splitChunks: false };
+  } else {
+    const { optimization } = compiler.options;
+    if (optimization.splitChunk) {
+      if (optimization.splitChunk.cacheGroups) {
+        if (optimization.splitChunk.cacheGroups.common) {
+          optimization.splitChunk.cacheGroups.common.chunks = "async";
+        }
+        if (optimization.splitChunk.cacheGroups.defaultVendors) {
+          optimization.splitChunk.cacheGroups.defaultVendors.chunks = "async";
+        }
       }
     }
   }
 
-  return compiler
-}
+  return compiler;
+};
 
 module.exports = {
   applyAsync,
-  setAsyncConfig
+  setAsyncConfig,
 };

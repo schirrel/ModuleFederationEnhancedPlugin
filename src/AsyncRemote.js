@@ -57,7 +57,7 @@ const applyAsync = (remotes) => {
 const setAsyncConfig = (compiler) => {
   if (!isVue(compiler)) return compiler;
 
-  if (!options.remotes) {
+  if (!compiler.options.remotes) {
     if (compiler.options.optimization)
       compiler.options.optimization.splitChunks = false;
     else compiler.options.optimization = { splitChunks: false };

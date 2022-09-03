@@ -7,4 +7,15 @@ const convertStringToObject = (remote) => {
   };
 };
 
-module.exports = { convertStringToObject };
+const convertToFinalObject = (remote) => {
+  const _remote = {};
+
+  Object.keys(remote).forEach((key) => {
+    _remote[key] =
+      typeof remote[key] === "function" ? remote[key]() : remote[key];
+  });
+
+  return _remote;
+};
+
+module.exports = { convertStringToObject, convertToFinalObject };

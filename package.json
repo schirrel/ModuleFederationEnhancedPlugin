@@ -22,9 +22,10 @@
     "ava": "^4.3.3"
   },
   "ava": {
+    "verbose": true,
     "files": [
-      "test/AsyncRemote.js"
-    ],
-    "verbose": true
+      "test/**/*",
+      "!**/mocks.*"
+    ]
   }
 }

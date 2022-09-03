@@ -9,7 +9,7 @@
     "webpack": "5.74.0"
   },
   "scripts": {
-    "test": "echo noop"
+    "test": "ava"
   },
   "repository": {
     "type": "git",
@@ -17,5 +17,14 @@
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
+  },
+  "devDependencies": {
+    "ava": "^4.3.3"
+  },
+  "ava": {
+    "files": [
+      "test/AsyncRemote.js"
+    ],
+    "verbose": true
   }
 }

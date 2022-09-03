@@ -10,7 +10,8 @@
   },
   "scripts": {
     "test": "ava",
-    "coverage": "c8 ava"
+    "coverage": "c8 ava --check-coverage",
+    "report": "c8 report --reporter=html"
   },
   "repository": {
     "type": "git",

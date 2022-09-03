@@ -19,7 +19,13 @@ const remotes = {
   },
 };
 
+const exposes = {
+  Button: "./src/Button",
+  Input: "./src/Input",
+};
+
 module.exports = {
   remotes,
-  functionObjectFinal: `${functionObject.remoteName}@${functionObject.remoteUrl}`
+  exposes,
+  functionObjectFinal: `${functionObject.remoteName}@${functionObject.remoteUrl}`,
 };

@@ -1,5 +1,5 @@
 name: Tests
-on: [push, pull_request]
+on: [pull_request]
 env:
   CI: true
 
@@ -11,7 +11,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        node: [14, 16]
+        node: [16]
         os: [ubuntu-latest]
 
     steps:
@@ -33,5 +33,4 @@ jobs:
         uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
-          path-to-lcov: ./coverage/lcov.info
           verbose: true # optional (default = false)

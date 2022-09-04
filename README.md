@@ -122,14 +122,16 @@ new ModuleFederationEnhancedPlugin({
 and this will convert to the string based.
 
 ## Default Async 
-By default all remotes and modules will be threaten as async using `promise new Promise` approach as in [Webpack docs](https://webpack.js.org/concepts/module-federation/).
-In case you don't want all the remotes to be async by default you can set the prop `defaultAsync` to false.
+By default all remotes and modules will be converted to async using `promise new Promise` approach as in [Webpack docs](https://webpack.js.org/concepts/module-federation/).
+
+In case you don't want all the remotes to be async by default, add the prop `defaultAsync` with `false`, as.
 ```javascript
 new ModuleFederationEnhancedPlugin({
   defaultAsync: false
 })
 ```
-And if has any rmeote you wish to be async among all you remotes, you jas had to use Object Remote with `async: true`, as:
+
+If any remote needed to be async among all other, you only need to add `async: true` to you remote declaration, as:
 ```javascript
 new ModuleFederationEnhancedPlugin({
   defaultAsync: false,

@@ -29,7 +29,8 @@ jobs:
       - name: Run tests
         run: npm run coverage
 
-      - name: Coveralls- uses: codecov/codecov-action@v3
+      - name: Coveralls
+        uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
           path-to-lcov: ./coverage/lcov.info

@@ -1,4 +1,5 @@
 const isVue = require("./utils/isVue");
+const converter = require("./utils/converter");
 
 const defaultOnError = () => {
   const module = {
@@ -36,19 +37,31 @@ const handleAsyncRemote = (remote) => {
   return `promise new Promise(${dynamicRemote(remote).toString()})`;
 };
 
-const mountFinalRemoteValue = (remote) => {
-  if (remote.async) {
+const mountFinalRemoteValue = (remote, defaultAsync) => {
+  if (remote.async || defaultAsync) {
     return handleAsyncRemote(remote);
   }
   return remote.name + "@" + remote.url;
 };
 
-const applyAsync = (remotes) => {
+const applyAsync = (remotes, defaultAsync) => {
   const _newRemotes = {};
   Object.keys(remotes || {})?.forEach((remoteName) => {
     const remote = remotes[remoteName];
-    _newRemotes[remoteName] =
-      typeof remote === "string" ? remote : mountFinalRemoteValue(remote);
+    if (defaultAsync) {
+      const remoteObject =
+        typeof remote === "string"
+          ? converter.convertStringToObject(remote)
+          : remote;
+      _newRemotes[remoteName] = mountFinalRemoteValue(
+        remoteObject,
+        defaultAsync
+      );
+    } else
+      _newRemotes[remoteName] =
+        typeof remote === "string"
+          ? remote
+          : mountFinalRemoteValue(converter.convertToFinalObject(remote));
   });
 
   return _newRemotes;

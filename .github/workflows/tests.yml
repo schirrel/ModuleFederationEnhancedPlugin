@@ -29,19 +29,8 @@ jobs:
       - name: Run tests
         run: npm run coverage
 
-      - name: Coveralls
-        uses: coverallsapp/github-action@master
+      - name: Coveralls- uses: codecov/codecov-action@v3
         with:
-          github-token: ${{ secrets.GH_TOKEN }}
-          flag-name: ${{matrix.os}}-node-${{ matrix.node }}
-          parallel: true
-
-  finish:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-      - name: Coveralls Finished
-        uses: coverallsapp/github-action@master
-        with:
-          github-token: ${{ secrets.GH_TOKEN }}
-          parallel-finished: true
+          token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
+          path-to-lcov: ./packages/phone-number/coverage/lcov.info
+          verbose: true # optional (default = false)

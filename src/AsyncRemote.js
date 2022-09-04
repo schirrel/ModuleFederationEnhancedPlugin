@@ -59,7 +59,9 @@ const applyAsync = (remotes, defaultAsync) => {
       );
     } else
       _newRemotes[remoteName] =
-        typeof remote === "string" ? remote : mountFinalRemoteValue(converter.convertToFinalObject(remote));
+        typeof remote === "string"
+          ? remote
+          : mountFinalRemoteValue(converter.convertToFinalObject(remote));
   });
 
   return _newRemotes;

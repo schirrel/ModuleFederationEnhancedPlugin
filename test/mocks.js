@@ -23,9 +23,15 @@ const exposes = {
   Button: "./src/Button",
   Input: "./src/Input",
 };
+const compiler = {
+  options: {
+    module: {},
+  },
+};
 
 module.exports = {
   remotes,
   exposes,
+  compiler,
   functionObjectFinal: `${functionObject.remoteName}@${functionObject.remoteUrl}`,
 };

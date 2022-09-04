@@ -5,6 +5,7 @@ Here are some functionalities for Webpack Module Federation.
 - Modules' Name Map
 - Remotes' Name Map
 - Remotes' URL Map
+- Remote definition with object
 - Default async 
 
 

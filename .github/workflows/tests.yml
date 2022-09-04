@@ -32,5 +32,5 @@ jobs:
       - name: Coveralls- uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
-          path-to-lcov: ./packages/phone-number/coverage/lcov.info
+          path-to-lcov: ./coverage/lcov.info
           verbose: true # optional (default = false)

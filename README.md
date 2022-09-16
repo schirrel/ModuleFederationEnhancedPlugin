@@ -73,7 +73,7 @@ import remoteMap from "myApp/remoteMap";
 
 ______________________________________________________
 
-## Remotes' Name Map
+## Remotes' URL Map
 >  list of all remotes URL for custom or lazy initilize    
  
 ### Usage
@@ -97,8 +97,21 @@ This will export a `remoteMap` with the value of `[{app1: 'myApp1.com/remoteEntr
 
 #### File
 ```js
-import remoteUrlMap from "myApp/remoteUrlMap";
+const remoteUrlMapGetFn = window.yourShellAppRemoteName.get('./remoteUrlMap')
+const remoteUrlMapList = remoteUrlMapGetFn()
 ```
+
+If you want to use the `import` approach you hav to add you app shell at the remotes list, like:
+```
+ remotes: {
+        shellRoot:  `shell@${shellPath}/remoteEntry.js`,
+        app1: "app1@myApp1.com/remoteEntry.js",
+        app2: "app2@coolAppRunningOnCloud.com.br/remoteEntry.js",
+      },
+```
+
+then `import remoteUrlMap from "shellRoot/remoteUrlMap";` would works like a charm.
+
 ## Object Remote
 With this plugin you can create your remote as object, this helps the usage for remote names and url from `.env` values or a callback functions, for example.
 ```javascript

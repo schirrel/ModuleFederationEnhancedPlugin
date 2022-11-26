@@ -8,21 +8,17 @@ const validateRemoteType = (remoteName, options) => {
     : { [objectRemote.name]: objectRemote.url };
 };
 
-const GenerateRemoteUrlMap = (options) => {
+const GenerateRemoteUrlList = (options) => {
   if (options.remotes) {
     return {
-      "./remoteUrlMap": `data:application/json,${JSON.stringify(
+      "./remoteUrlList": `data:application/json,${JSON.stringify(
         Object.keys(options.remotes)
           .map((remoteName) => {
             return validateRemoteType(remoteName, options);
           })
-          .reduce(
-            (obj, item) => Object.assign(obj, { ...item }),
-            {}
-          )
       )}`,
     };
   } else return {};
 };
 
-module.exports = GenerateRemoteUrlMap;
+module.exports = GenerateRemoteUrlList;

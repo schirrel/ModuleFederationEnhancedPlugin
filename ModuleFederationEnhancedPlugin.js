@@ -3,6 +3,7 @@ const ModuleFederationPlugin =
 
 const GenerateModuleMap = require("./src/GenerateModuleMap");
 const GenerateRemoteMap = require("./src/GenerateRemoteMap");
+const GenerateRemoteUrlList = require("./src/GenerateRemoteUrlList");
 const GenerateRemoteUrlMap = require("./src/GenerateRemoteUrlMap");
 const AsyncRemote = require("./src/AsyncRemote");
 class ModuleFederationEnhancedPlugin extends ModuleFederationPlugin {
@@ -15,6 +16,7 @@ class ModuleFederationEnhancedPlugin extends ModuleFederationPlugin {
       ...options.exposes,
       ...GenerateModuleMap(options),
       ...GenerateRemoteMap(options),
+      ...GenerateRemoteUrlList(options),
       ...GenerateRemoteUrlMap(options),
     };
     options.remotes = AsyncRemote.applyAsync(options.remotes,  options.defaultAsync ?? true);

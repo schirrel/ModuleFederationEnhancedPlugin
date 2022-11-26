@@ -1,8 +1,8 @@
-const AsyncRemote = require("./AsyncRemote");
+const DefaultAsync = require("./DefaultAsync");
 const converter = require("./utils/converter");
 
-const handleAsyncRemote = (remote) => {
-  return `promise new Promise(${AsyncRemote.dynamicRemote(remote).toString()})`;
+const handleDefaultAsync = (remote) => {
+  return `promise new Promise(${DefaultAsync.dynamicRemote(remote).toString()})`;
 };
 
 const validateAndSetDefault = (remote) => {
@@ -20,12 +20,12 @@ const validateAndSetDefault = (remote) => {
 const mountFinalRemoteValue = (remote, defaultAsync) => {
   if (remote.async || defaultAsync) {
     // remote = validateAndSetDefault(remote);
-    return handleAsyncRemote(remote);
+    return handleDefaultAsync(remote);
   }
   return `${remote.name}@${remote.url}/${remote.remoteEntry}`;
 };
 
-const createAsyncRemote = (remote, defaultAsync) => {
+const createDefaultAsync = (remote, defaultAsync) => {
   let remoteObject = converter.Remote(remote).isString()
     ? converter.convertStringToObject(remote)
     : remote;
@@ -35,7 +35,7 @@ const createAsyncRemote = (remote, defaultAsync) => {
   return mountFinalRemoteValue(remoteObject, defaultAsync);
 };
 
-const createNotAsyncRemote = (remote) => {
+const createNotDefaultAsync = (remote) => {
   return converter.Remote(remote).isString()
     ? remote
     : mountFinalRemoteValue(converter.convertToFinalObject(remote), false);
@@ -46,8 +46,8 @@ const handleRemotes = (remotes, defaultAsync) => {
   Object.keys(remotes || {})?.forEach((remoteName) => {
     const remote = remotes[remoteName];
     _newRemotes[remoteName] = defaultAsync || remote.true
-      ? createAsyncRemote(remote)
-      : createNotAsyncRemote(remote);
+      ? createDefaultAsync(remote)
+      : createNotDefaultAsync(remote);
   });
 
   return _newRemotes;

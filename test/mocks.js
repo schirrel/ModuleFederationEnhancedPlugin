@@ -1,21 +1,27 @@
 const functionObject = {
   remoteName: "functionObjectApp",
-  remoteUrl: "functionObjectApp.com/remoteEntry.js",
+  remoteUrl: "functionObjectApp.com",
 };
 const remotes = {
   app: "app1@myApp1.com/remoteEntry.js",
   wrongAsyncObjectApp: {
     name: "wrongAsyncObjectApp",
-    url: "wrongAsyncObjectApp.com/remoteEntry.js",
+    url: "wrongAsyncObjectApp.com",
   },
   rightAsyncObjectApp: {
     async: true,
     name: "rightAsyncObjectApp",
-    url: "rightAsyncObjectApp.com/remoteEntry.js",
+    url: "rightAsyncObjectApp.com",
   },
   functionObjectApp: {
     name: () => functionObject.remoteName,
     url: () => functionObject.remoteUrl,
+  },
+  objectCustomRemoteEntry: {
+    async: false,
+    name: "objectCustomRemoteEntry",
+    url: "objectCustomRemoteEntry.com",
+    remoteEntry: "customRemoteEntry.js",
   },
 };
 
@@ -33,5 +39,6 @@ module.exports = {
   remotes,
   exposes,
   compiler,
-  functionObjectFinal: `${functionObject.remoteName}@${functionObject.remoteUrl}`,
+  functionObjectFinal: `${functionObject.remoteName}@${functionObject.remoteUrl}/remoteEntry.js`,
+  objectCustomRemoteEntry: `${remotes.objectCustomRemoteEntry.name}@${remotes.objectCustomRemoteEntry.url}/${remotes.objectCustomRemoteEntry.remoteEntry}`,
 };

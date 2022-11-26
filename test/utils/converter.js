@@ -10,11 +10,12 @@ test("Must convert remote string to object", async (t) => {
   });
 });
 
-test("Must convert prop function remote to final object", async (t) => {
+test.only("Must convert prop function remote to final object", async (t) => {
   const result = converter.convertToFinalObject(mocks.remotes.functionObjectApp);
   t.deepEqual(result, {
     name: mocks.remotes.functionObjectApp.name(),
     url: mocks.remotes.functionObjectApp.url(),
+    remoteEntry: 'remoteEntry.js'
   });
 });
 

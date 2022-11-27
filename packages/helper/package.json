@@ -11,5 +11,8 @@
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
+  },
+  "dependencies": {
+    "@module-federation/utilities": "^1.0.1"
   }
 }

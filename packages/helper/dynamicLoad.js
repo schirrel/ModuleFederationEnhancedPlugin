@@ -5,29 +5,18 @@ const loadModule = async (props) => {
   const { remote, url, module } = props;
 
   if (!remote || !url || !module) {
-    return "No system specified";
+    throw new Error(
+      "ModuleFederationEnhancedPlugin Helper: `remote`, `url` and `module` are required to load a module."
+    );
   }
 
-  const Module = getModule(remote, "default", module, url);
-  const Component = await Module();
-
-  return Component;
+  const Module = getModule({ remote, module, url });
+  return Module;
 };
 
-// const convertListToMap = (list) => {
-//   let map = {};
-//   list.forEach((item) => {
-//     map = Object.assign(map, item);
-//   });
-//   return map;
-// };
-
 const loadRemotes = async () => {
-//   const remoteUrlListFactory = await window.pwa.get("./remoteUrlList");
-//   const remoteList = remoteUrlListFactory();
-//   const remoteMap = convertListToMap(remoteList);
-const remoteUrlMapFactory = await window.pwa.get("./remoteUrlMap");
-const remoteMap = remoteUrlMapFactory();
+  const remoteUrlMapFactory = await window.pwa.get("./remoteUrlMap");
+  const remoteMap = remoteUrlMapFactory();
   const remotePromises = [];
   Object.keys(remoteMap).forEach(async (key) => {
     remotePromises.push(

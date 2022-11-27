@@ -42,5 +42,4 @@ test("All remotes must be converted into promise new Promise if second prop is t
 test("Object remote with custom remoteEntry props must be converted", async (t) => {
   const result = ObjectRemote.handleRemotes(mocks.remotes);
   t.is(result.objectCustomRemoteEntry, mocks.objectCustomRemoteEntry);
-  t.is(result.objectCustomRemoteEntryAsync, mocks.objectCustomRemoteEntryAsync);
 });

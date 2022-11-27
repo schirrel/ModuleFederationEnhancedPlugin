@@ -26,6 +26,7 @@ env:
 jobs:
   build:
     name: Build
+    working-directory: ./packages/docs
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -71,6 +72,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     name: Deploy
+    working-directory: ./packages/docs
     steps:
       - name: Deploy to GitHub Pages
         id: deployment

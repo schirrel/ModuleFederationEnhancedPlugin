@@ -9,7 +9,7 @@ Packages here:
    - docs: https://schirrel.dev/ModuleFederationEnhancedPlugin/
    - package: `@schirrel/module-federation-enhanced-plugin`
 - packages/helper:
-   - docs: https://schirrel.dev/ModuleFederationEnhancedPlugin/helper
+   - docs: https://schirrel.dev/ModuleFederationEnhancedPlugin/helper/about
    - package: `@schirrel/module-federation-enhanced-plugin-helper`
 
 

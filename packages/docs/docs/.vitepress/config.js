@@ -20,8 +20,8 @@ export default {
             link: "/about",
           },
           {
-            text: "Installation",
-            link: "/installation",
+            text: "Install",
+            link: "/install",
           },
           {
             text: "Getting Started",
@@ -30,7 +30,7 @@ export default {
         ],
       },
       {
-        text: "Functionalities",
+        text: "Features",
         items: [
           { text: "Default Async", link: "/default-async" },
           { text: "Modules' Name Map", link: "/modules-map" },
@@ -40,6 +40,16 @@ export default {
             text: "Object Definition",
             link: "/object-definition",
           },
+        ],
+      },
+      {
+        text: "Helper",
+        items: [
+          { text: "About", link: "/helper/about" },
+          { text: "Install", link: "/helper/install" },
+          { text: "getOrLoadRemote", link: "/helper/getOrLoadRemote" },
+          { text: "getModule", link: "/helper/getModule" },
+          { text: "dynamicLoad", link: "/helper/dynamicLoad" },
         ],
       },
     ],

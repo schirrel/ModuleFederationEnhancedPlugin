@@ -1,0 +1,2 @@
+# getModule
+Load a module from a remote using low level API, once dynamic import `impot()` dont work with dynamic passed names, as can bee read about [here](https://github.com/module-federation/module-federation-examples/issues/1323)

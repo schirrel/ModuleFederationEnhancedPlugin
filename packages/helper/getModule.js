@@ -14,18 +14,22 @@ export const getModule = async ({ remote, module, url }) => {
       "ModuleFederationEnhancedPlugin Helper: `remote` and `module` are required to load a module."
     );
   }
-  const container =
-    window[remote] ||
-    (await injectScript({
-      global: remote,
-      url: url,
-    }));
+  try {
+    const container =
+      window[remote] ||
+      (await injectScript({
+        global: remote,
+        url: url,
+      }));
 
-  const factory = await container.get(module);
-  const Module = factory();
-  if (isObject(Module)) {
-    return isExportDefault(Module) ? Module.default : Module;
+    const factory = await container.get(module);
+    const Module = factory();
+    if (isObject(Module)) {
+      return isExportDefault(Module) ? Module.default : Module;
+    }
+
+    return Module;
+  } catch (e) {
+    return null;
   }
-
-  return Module;
 };

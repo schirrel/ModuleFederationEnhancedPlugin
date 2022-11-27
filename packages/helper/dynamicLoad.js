@@ -9,9 +9,12 @@ const loadModule = async (props) => {
       "ModuleFederationEnhancedPlugin Helper: `remote`, `url` and `module` are required to load a module."
     );
   }
-
-  const Module = getModule({ remote, module, url });
-  return Module;
+  try {
+    const Module = getModule({ remote, module, url });
+    return Module;
+  } catch (e) {
+    return null;
+  }
 };
 
 const loadRemotes = async () => {
@@ -29,7 +32,7 @@ const loadRemotes = async () => {
         resolve({
           remote: key,
           url: remoteMap[key],
-          modules: moduleMap,
+          modules: moduleMap || [],
         });
       })
     );
@@ -51,12 +54,14 @@ const loadModules = async (remotes) => {
             url: remote.url,
             module: module,
           });
-          const moduleName = module.replace("./", "");
-          modulesObject[moduleName] = {
-            remote: remote.remote,
-            moduleName: module.replace("./", ""),
-            module: moduleLoaded,
-          };
+          if (moduleLoaded) {
+            const moduleName = module.replace("./", "");
+            modulesObject[moduleName] = {
+              remote: remote.remote,
+              moduleName: module.replace("./", ""),
+              module: moduleLoaded,
+            };
+          }
           resolve();
         })
       );

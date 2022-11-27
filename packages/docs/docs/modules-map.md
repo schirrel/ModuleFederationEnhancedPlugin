@@ -17,9 +17,9 @@ module.export = {
   ],
 };
 ```
-This will export a list with `['Button', 'Input']` for `myRemotemModule`, and when you use it on any other app you will be able to import `moduleNameMap`such as:
+This will export a list with `['Button', 'Input']` for `myRemotemModule`, and when you use it on any other app you will be able to import `remoteNameList`such as:
 
 ```js
-import moduleNameMap from "myRemotemModule/moduleNameMap";
+import remoteNameList from "myRemotemModule/remoteNameList";
 ```
 ______________________________________________________

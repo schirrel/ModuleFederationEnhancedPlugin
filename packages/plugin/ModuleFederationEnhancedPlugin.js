@@ -1,8 +1,8 @@
 const ModuleFederationPlugin =
   require("webpack").container.ModuleFederationPlugin;
 
-const GenerateModuleNameMap = require("./src/GenerateModuleNameMap");
-const GenerateRemoteNameMap = require("./src/GenerateRemoteNameMap");
+const GenerateModuleNameList = require("./src/GenerateModuleNameList");
+const GenerateRemoteNameList = require("./src/GenerateRemoteNameList");
 const GenerateRemoteUrlList = require("./src/GenerateRemoteUrlList");
 const GenerateRemoteUrlMap = require("./src/GenerateRemoteUrlMap");
 const DefaultAsync = require("./src/DefaultAsync");
@@ -16,8 +16,8 @@ class ModuleFederationEnhancedPlugin extends ModuleFederationPlugin {
 
     options.exposes = {
       ...options.exposes,
-      ...GenerateModuleNameMap(options),
-      ...GenerateRemoteNameMap(options),
+      ...GenerateModuleNameList(options),
+      ...GenerateRemoteNameList(options),
       ...GenerateRemoteUrlList(options),
       ...GenerateRemoteUrlMap(options),
     };

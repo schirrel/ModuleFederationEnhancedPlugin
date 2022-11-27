@@ -47,7 +47,6 @@ export default {
         items: [
           { text: "About", link: "/helper/about" },
           { text: "Install", link: "/helper/install" },
-          { text: "getOrLoadRemote", link: "/helper/getOrLoadRemote" },
           { text: "getModule", link: "/helper/getModule" },
           { text: "dynamicLoad", link: "/helper/dynamicLoad" },
         ],

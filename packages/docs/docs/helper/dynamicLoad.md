@@ -1,10 +1,10 @@
 # dynamicLoad
 
-This function load all needed and available for consuption, step:
+This function load all needed and available for consumption, step:
 
 - Get `remoteUrlMap` to know remotes
-- Dynamic register by calling `getModule` that calls `getOrLoadRemote`
-- List all remotes available for consuption using `moduleNameList` for each remote
+- Dynamic register by calling `getModule`
+- List all remotes available for consumption using `moduleNameList` for each remote
 - Load all modules for each remote
 - Return all modules the app-shell, root-remote.
 

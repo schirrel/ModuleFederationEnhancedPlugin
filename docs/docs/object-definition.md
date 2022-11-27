@@ -32,7 +32,7 @@ The properties for the object defition are:
 | Property | Type | Default | Description |  
 | -------- | ---- | --------| ----------- |
 | name | `string` or `function` | | The name/scope of the remote, what comes before the `@` on the string based remote configuration |
-| url | `string` or `function` | | The url of the js file for the remote, what comes after the `@` on the string based remote configuration |
+| url | `string` or `function` | | The url of the js file for the remote, what comes after the `@` on the string based remote configuration. **It is extremely important to dont use the last slash(`/`) on the url** |
 | remoteEntry |  `string` or `function` | `remoteEntry.js` | The name of the remoteEntry file you are using, if you use the default and large used `remoteEntry.js`, no need to fill this up  |
 | async | `boolean` | true | The prop you can use to disabled the async behavior for a specific remote |
 

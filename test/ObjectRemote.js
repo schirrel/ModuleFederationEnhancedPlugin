@@ -32,9 +32,15 @@ test("All remotes must be converted into promise new Promise if second prop is t
   t.regex(result.wrongAsyncObjectApp, /promise new Promise/gm);
   t.regex(result.rightAsyncObjectApp, /promise new Promise/gm);
   t.regex(result.functionObjectApp, /promise new Promise/gm);
+  const regex = new RegExp(
+    String.raw`script.src = "${mocks.remotes.objectCustomRemoteEntryAsync.url}/${mocks.remotes.objectCustomRemoteEntryAsync.remoteEntry}"`,
+    "g"
+  );
+  t.regex(result.objectCustomRemoteEntryAsync, regex);
 });
 
 test("Object remote with custom remoteEntry props must be converted", async (t) => {
   const result = ObjectRemote.handleRemotes(mocks.remotes);
   t.is(result.objectCustomRemoteEntry, mocks.objectCustomRemoteEntry);
+  t.is(result.objectCustomRemoteEntryAsync, mocks.objectCustomRemoteEntryAsync);
 });

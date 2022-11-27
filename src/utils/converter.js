@@ -11,10 +11,14 @@ const Remote = (remote) => {
 
 const convertStringToObject = (remote) => {
   const parts = remote.split("@");
+  const urlParts = parts[1].split("/");
+  const remoteEntry = urlParts.pop();
+  const url = urlParts.join("");
 
   return {
     name: parts[0],
-    url: parts[1],
+    url,
+    remoteEntry,
   };
 };
 

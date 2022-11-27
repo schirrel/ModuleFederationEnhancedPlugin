@@ -23,6 +23,11 @@ const remotes = {
     url: "objectCustomRemoteEntry.com",
     remoteEntry: "customRemoteEntry.js",
   },
+  objectCustomRemoteEntryAsync: {
+    name: "objectCustomRemoteEntryAsync",
+    url: "objectCustomRemoteEntryAsync.com",
+    remoteEntry: "objectCustomRemoteEntryAsync.js",
+  },
 };
 
 const exposes = {

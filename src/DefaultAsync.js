@@ -12,7 +12,7 @@ const defaultOnError = () => {
 const dynamicRemote = (remote) => {
   return `(resolve) => {
         const script = document.createElement("script");
-        script.src = "${remote.url}";
+        script.src = "${remote.url}/${remote.remoteEntry}";
         script.onload = () => {
           const module = {
             get: (request) => window["${remote.name}"].get(request),

@@ -1,5 +1,4 @@
-
-## Modules' Name Map
+# Modules' Name Map
 > list of all available modules from a single remote. 
  
 ```js

@@ -1,5 +1,4 @@
-
-## Remotes' Name Map
+# Remotes' Name Map
 > list of all remotes available for consumption    
  
 ```js

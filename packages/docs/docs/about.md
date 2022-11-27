@@ -22,7 +22,7 @@ Here we split the definition of the `name`, `url` and you just need to say the `
           name: "auth",
           url: process.env.authUrl
     },
-     authRemote: {
+     dsRemote: {
         name: "ds",
         url: () =>  someValidation ? process.env.dsUrl : "http://mydefaultds.com",
         remoteEntry: "dsEntryVersion.js"  

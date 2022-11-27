@@ -11,9 +11,9 @@ hero:
     - theme: alt
       text: View on GitHub
       link: https://github.com/schirrel/ModuleFederationEnhancedPlugin
-    - theme: brand
-      text: Demo
-      link: https://schirrel.dev/vue-cruder/demo
+    # - theme: brand
+    #   text: Demo
+    #   link: https://schirrel.dev/vue-cruder/demo
 
 features:
   - icon: ⚡️

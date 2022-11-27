@@ -1,5 +1,5 @@
 # 2.0.0
-- renamed `moduleMap` to `remoteNameList`
+- renamed `moduleMap` to `moduleNameList`
 - renamed `remoteMap` to `remoteNameList`
 - renamed old `remoteUrlMap` to `remoteUrlList`, once it was a list and not a map
 

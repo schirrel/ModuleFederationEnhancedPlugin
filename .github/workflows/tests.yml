@@ -6,7 +6,6 @@ env:
 jobs:
   test:
     name: Node ${{ matrix.node }} on ${{ matrix.os }}
-    working-directory: packages/plugin
     runs-on: ${{ matrix.os }}
 
     strategy:

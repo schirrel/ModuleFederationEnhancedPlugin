@@ -5,6 +5,8 @@ Discussion: https://github.com/module-federation/module-federation-examples/pull
 all rights reserved to [@ScriptedAlchemy](https://github.com/ScriptedAlchemy) and [@infoxicator](https://github.com/infoxicator) 
 */
 
+const pluginName = "ModuleFederationEnhancedPlugin";
+
 const AddRuntimeRequiremetToPromiseExternal = (compiler) => {
   compiler.hooks.compilation.tap(pluginName, (compilation) => {
     const RuntimeGlobals = compiler.webpack.RuntimeGlobals;

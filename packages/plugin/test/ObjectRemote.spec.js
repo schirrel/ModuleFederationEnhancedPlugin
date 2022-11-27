@@ -43,3 +43,15 @@ test("Object remote with custom remoteEntry props must be converted", async (t) 
   const result = ObjectRemote.handleRemotes(mocks.remotes);
   t.is(result.objectCustomRemoteEntry, mocks.objectCustomRemoteEntry);
 });
+
+test("Object remote empty should throw error ", async (t) => {
+  try {
+    const result = ObjectRemote.handleRemotes({
+      remotes: {
+        app: {},
+      },
+    });
+  } catch (e) {
+    t.is(e.message, "ModuleFederationEnhancedPlugin: `name` and `url` are required when define a remote on object format.");
+  }
+});

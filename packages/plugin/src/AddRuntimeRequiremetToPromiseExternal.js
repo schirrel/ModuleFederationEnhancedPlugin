@@ -1,7 +1,8 @@
 /*
 
-Source: https://github.com/module-federation/module-federation-examples/blob/master/shared-routes2/app1/AddRuntimeRequiremetToPromiseExternal.js
-all rights reserved to [@infoxicator](https://github.com/infoxicator)
+Source: https://github.com/module-federation/module-federation-examples/blob/master/shared-routes2/app1/AddRuntimeRequiremetToPromiseExternal.js 
+Discussion: https://github.com/module-federation/module-federation-examples/pull/2173
+all rights reserved to [@ScriptedAlchemy](https://github.com/ScriptedAlchemy) and [@infoxicator](https://github.com/infoxicator) 
 */
 
 const AddRuntimeRequiremetToPromiseExternal = (compiler) => {

@@ -20,8 +20,8 @@ module.export = {
 ```
 This will export a list with `['app1', 'app2']`, it will expose this as a low level API:
 ```js
- const moduleMapFactory = await window.myMainModule.get('./moduleMap')
- const moduleMap = moduleMapFactory()
+ const remoteNameMapFactory = await window.myMainModule.get('./remoteNameMap')
+ const remoteNameMap = remoteNameMapFactory()
 ```
 
 ### With Import
@@ -36,6 +36,6 @@ to use with `import` your `myMainModule` must be in you remote entries, like:
 
 Them you will be able to perform:
 ```js
-import moduleMap from "myRemotemModule/moduleMap";
+import remoteNameMap from "myRemotemModule/remoteNameMap";
 ```
 ______________________________________________________

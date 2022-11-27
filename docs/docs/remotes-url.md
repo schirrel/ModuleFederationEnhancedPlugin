@@ -92,7 +92,7 @@ And it will be expose this as a low level API:
 
 ```js
 const moduleUrlMapFactory = await window.myMainModule.get("./remoteUrlMap");
-const moduleMap = moduleUrlMapFactory();
+const moduleNameMap = moduleUrlMapFactory();
 ```
 
 ### With Import
@@ -110,7 +110,7 @@ to use with `import` your `myMainModule` must be in you remote entries, like:
 Them you will be able to perform:
 
 ```js
-import moduleMap from "myRemotemModule/remoteUrlMap";
+import moduleNameMap from "myRemotemModule/remoteUrlMap";
 ```
 
 ---

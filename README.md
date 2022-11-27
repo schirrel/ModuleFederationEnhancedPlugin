@@ -36,11 +36,11 @@ module.export = {
   ],
 };
 ```
-This will export a `moduleMap` with the value of `['Button', 'Input']`
+This will export a `moduleNameMap` with the value of `['Button', 'Input']`
 
 #### File
 ```js
-import moduleMap from "myApp/moduleMap";
+import moduleNameMap from "myApp/moduleNameMap";
 ```
 ______________________________________________________
 
@@ -64,11 +64,11 @@ module.export = {
   ],
 };
 ```
-This will export a `remoteMap` with the value of `['app1', 'app2']`
+This will export a `remoteNameMap` with the value of `['app1', 'app2']`
 
 #### File
 ```js
-import remoteMap from "myApp/remoteMap";
+import remoteNameMap from "myApp/remoteNameMap";
 ```
 
 ______________________________________________________
@@ -93,7 +93,7 @@ module.export = {
   ],
 };
 ```
-This will export a `remoteMap` with the value of `[{app1: 'myApp1.com/remoteEntry.js' app2: 'coolAppRunningOnCLoude.com.br/remoteEntry.js'}]`
+This will export a `remoteNameMap` with the value of `[{app1: 'myApp1.com/remoteEntry.js' app2: 'coolAppRunningOnCLoude.com.br/remoteEntry.js'}]`
 
 #### File
 ```js

@@ -6,7 +6,9 @@ name: Publish Github Packages - Helper
 on:
   release:
     types: [created]
-
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  
 jobs:
   publish-gpr:
     runs-on: ubuntu-latest

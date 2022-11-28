@@ -4,16 +4,6 @@ Module Federation with a little bit more and all remotes async by default
 Take a look at the full [docs](https://schirrel.dev/ModuleFederationEnhancedPlugin/)
 
 
-Packages here:
-- packages/plugin: 
-   - docs: https://schirrel.dev/ModuleFederationEnhancedPlugin/
-   - package: `@schirrel/module-federation-enhanced-plugin`
-- packages/helper:
-   - docs: https://schirrel.dev/ModuleFederationEnhancedPlugin/helper/about
-   - package: `@schirrel/module-federation-enhanced-plugin-helper`
-
-
-
 Dont want o read the docs? Here's a TL/DR:
 
 ## Features

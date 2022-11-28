@@ -1,0 +1,42 @@
+{
+  "name": "@schirrel/module-federation-enhanced-plugin",
+  "version": "2.0.0",
+  "author": "@schirrel",
+  "description": "Add feature for improve load and offline management of remotes",
+  "main": "ModuleFederationEnhancedPlugin.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "ava",
+    "coverage": "nyc ava"
+  },
+  "dependencies": {
+    "webpack": "5.74.0"
+  },
+  "devDependencies": {
+    "ava": "^4.3.3",
+    "coveralls": "^3.1.1",
+    "nyc": "^15.1.0",
+    "tap": "^16.3.0"
+  },
+  "ava": {
+    "verbose": true,
+    "files": [
+      "test/**/*",
+      "!**/mocks.*",
+      "!**/mocks.*"
+    ]
+  },
+  "nyc": {
+    "reporter": [
+      "text",
+      "lcov"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:schirrel/ModuleFederationEnhancedPlugin.git"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  }
+}

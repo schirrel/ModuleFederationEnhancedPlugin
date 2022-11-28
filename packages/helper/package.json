@@ -1,0 +1,18 @@
+{
+  "name": "@schirrel/module-federation-enhanced-plugin-helper",
+  "version": "1.0.0",
+  "author": "@schirrel",
+  "description": "A helper to dynamic load remotes and modules",
+  "main": "index.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:schirrel/ModuleFederationEnhancedPlugin.git"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "dependencies": {
+    "@module-federation/utilities": "^1.0.1"
+  }
+}

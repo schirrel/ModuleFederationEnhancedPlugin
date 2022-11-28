@@ -1,5 +1,6 @@
 export default {
   title: "MFEnhacedPlugin",
+  base: "/ModuleFederationEnhancedPlugin/",
   description: "ModuleFederation with a bit more",
   themeConfig: {
     footer: {

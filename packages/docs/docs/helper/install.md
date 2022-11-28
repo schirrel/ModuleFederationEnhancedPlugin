@@ -1,5 +1,5 @@
 # Install
-The installation is simple using [npm module](@schirrel/module-federation-enhanced-plugin-helper) and your favorite terminal, and package manager:
+The installation is simple using [npm module](https://www.npmjs.com/package/@schirrel/module-federation-enhanced-plugin-helper) and your favorite terminal, and package manager:
 
 ```sh
 npm i @schirrel/module-federation-enhanced-plugin-helper

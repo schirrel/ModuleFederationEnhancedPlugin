@@ -18,7 +18,7 @@ jobs:
         with:
           node-version: 16
       - run: |
-         cd packages/helper
+         cd packages/plugin
          npm ci
          npm test
 

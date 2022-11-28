@@ -15,8 +15,10 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-      - run: npm ci
-      - run: npm test
+      - run: |
+         cd packages/helper
+         npm ci
+         npm test
 
   publish-gpr:
     needs: build
@@ -30,8 +32,9 @@ jobs:
         with:
           node-version: 16
           registry-url: https://npm.pkg.github.com/
-      - run: cd packages/plugin
-      - run: npm ci
-      - run: npm publish
+      - run: |
+          cd packages/plugin
+          npm ci
+          npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GH_TOKEN}}

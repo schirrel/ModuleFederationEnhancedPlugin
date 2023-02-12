@@ -17,8 +17,8 @@ const loadModule = async (props) => {
   }
 };
 
-const loadRemotes = async () => {
-  const remoteUrlMapFactory = await window.pwa.get("./remoteUrlMap");
+const loadRemotes = async (hostName) => {
+  const remoteUrlMapFactory = await window[hostName].get("./remoteUrlMap");
   const remoteMap = remoteUrlMapFactory();
   const remotePromises = [];
   Object.keys(remoteMap).forEach(async (key) => {
@@ -72,8 +72,8 @@ const loadModules = async (remotes) => {
   return modulesObject;
 };
 
-export async function loadRemoteAndModules() {
-  const remotes = await loadRemotes();
+export async function loadRemoteAndModules(hostName) {
+  const remotes = await loadRemotes(hostName);
   const modules = await loadModules(remotes);
   return modules;
 }

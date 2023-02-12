@@ -13,7 +13,7 @@ const convertStringToObject = (remote) => {
   const parts = remote.split("@");
   const urlParts = parts[1].split("/");
   const remoteEntry = urlParts.pop();
-  const url = urlParts.join("");
+  const url = urlParts.join("/");
 
   return {
     name: parts[0],

@@ -1,6 +1,6 @@
 {
   "name": "@schirrel/module-federation-enhanced-plugin-helper",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "author": "@schirrel",
   "description": "A helper to dynamic load remotes and modules",
   "main": "index.js",

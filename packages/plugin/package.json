@@ -10,7 +10,7 @@
     "coverage": "nyc ava"
   },
   "dependencies": {
-    "webpack": "5.74.0"
+    "webpack": "5.76.0"
   },
   "devDependencies": {
     "ava": "^4.3.3",

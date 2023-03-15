@@ -291,7 +291,7 @@
     "uuid": "^8.3.2",
     "verror": "^1.10.0",
     "watchpack": "^2.4.0",
-    "webpack": "^5.75.0",
+    "webpack": "^5.76.0",
     "webpack-sources": "^3.2.3",
     "well-known-symbols": "^2.0.0",
     "which": "^2.0.2",

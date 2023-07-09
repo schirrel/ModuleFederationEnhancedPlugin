@@ -279,7 +279,7 @@
     "time-zone": "^1.0.0",
     "to-fast-properties": "^2.0.0",
     "to-regex-range": "^5.0.1",
-    "tough-cookie": "^2.5.0",
+    "tough-cookie": "^4.1.3",
     "trivial-deferred": "^1.0.1",
     "tunnel-agent": "^0.6.0",
     "tweetnacl": "^0.14.5",
